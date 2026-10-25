@@ -1,0 +1,10 @@
+{
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.import.maven.enabled": true,
+  "java.project.sourcePaths": [
+    "backend/src/main/java"
+  ],
+  "java.project.referencedLibraries": [
+    "${userHome}/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.jar"
+  ]
+}

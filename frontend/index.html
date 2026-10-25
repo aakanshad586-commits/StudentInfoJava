@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Management</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Student Management home">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>Student<span class="brand-light">Desk</span></span>
+    </a>
+    <span class="topbar-note">Student Management System</span>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">OVERVIEW</p>
+        <h1>Student directory</h1>
+        <p class="page-subtitle">Manage student records in one simple place.</p>
+      </div>
+      <div class="connection-status" id="connection-status"><span class="status-dot"></span> Connecting to database...</div>
+    </section>
+
+    <section class="summary-grid" aria-label="Student summary">
+      <article class="summary-card">
+        <span class="summary-icon violet" aria-hidden="true">▤</span>
+        <div><p>Total students</p><strong id="student-count">—</strong></div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon mint" aria-hidden="true">⌘</span>
+        <div><p>Courses represented</p><strong id="course-count">—</strong></div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon amber" aria-hidden="true">↗</span>
+        <div><p>Academic years</p><strong id="year-count">—</strong></div>
+      </article>
+    </section>
+
+    <section class="workspace-grid">
+      <article class="panel form-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">STUDENT RECORD</p>
+            <h2 id="form-title">Add a student</h2>
+          </div>
+          <span class="panel-heading-icon" aria-hidden="true">＋</span>
+        </div>
+        <p class="panel-description">Enter the details below to create a student record.</p>
+
+        <form id="student-form">
+          <input id="student-id" name="id" type="hidden">
+          <label for="full-name">Full name</label>
+          <input id="full-name" name="fullName" type="text" maxlength="100" placeholder="e.g. Jordan Lee" required>
+
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" maxlength="150" placeholder="jordan@example.com" required>
+
+          <label for="course">Course / program</label>
+          <input id="course" name="course" type="text" maxlength="100" placeholder="e.g. Computer Science" required>
+
+          <label for="year">Academic year</label>
+          <select id="year" name="year" required>
+            <option value="">Select year</option>
+            <option value="1">Year 1</option>
+            <option value="2">Year 2</option>
+            <option value="3">Year 3</option>
+            <option value="4">Year 4</option>
+          </select>
+
+          <button class="button button-primary form-submit" id="submit-button" type="submit">
+            <span aria-hidden="true">＋</span> Add student
+          </button>
+          <button class="button button-secondary cancel-edit" id="cancel-edit" type="button" hidden>Cancel editing</button>
+        </form>
+      </article>
+
+      <article class="panel directory-panel">
+        <div class="directory-heading">
+          <div>
+            <p class="eyebrow">DIRECTORY</p>
+            <h2>All students</h2>
+          </div>
+          <span class="record-count" id="record-count">0 records</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">STUDENT</th>
+                <th scope="col">COURSE</th>
+                <th scope="col">YEAR</th>
+                <th scope="col"><span class="visually-hidden">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody id="student-rows"></tbody>
+          </table>
+          <div class="empty-state" id="empty-state" hidden>
+            <span class="empty-icon" aria-hidden="true">▤</span>
+            <h3>No students yet</h3>
+            <p>Add your first student using the form.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
